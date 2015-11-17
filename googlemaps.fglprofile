@@ -1,2 +1,6 @@
+# My API keys.  PLEASE replace with your own.  Left in so your progam runs first time
+
+
+
 key.google.geocode = "AIzaSyArvZnPO4J6klxnQCTdCcWNzIdl9T8Awzs"
 key.google.maps = "ABQIAAAAgg35UlaF7bP0AXZjRMf8WRSSAVt8jDhBFa1zz53EcnyyKZXBCBRyGAdLwDZ67Xwbpnm0bCOytzag0A"

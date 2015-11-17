@@ -1,35 +1,3 @@
-#
-#       (c) Copyright 2008, Four Js AsiaPac - www.4js.com.au/local
-#
-#       MIT License (http://www.opensource.org/licenses/mit-license.php)
-#
-#       Permission is hereby granted, free of charge, to any person
-#       obtaining a copy of this software and associated documentation
-#       files (the "Software"), to deal in the Software without restriction,
-#       including without limitation the rights to use, copy, modify, merge,
-#       publish, distribute, sublicense, and/or sell copies of the Software,
-#       and to permit persons to whom the Software is furnished to do so,
-#       subject to the following conditions:
-#
-#       The above copyright notice and this permission notice shall be
-#       included in all copies or substantial portions of the Software.
-#
-#       THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-#       EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-#       OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-#       NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS
-#       BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
-#       ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
-#       CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-#       THE SOFTWARE.
-#
-#       April 2008 reuben@4js.com.au
-#
-# Example of a Genero program utilising the Genero MAPS APIs for static maps
-
-
--- https://developers.google.com/maps/documentation/geocoding/intro
-
 IMPORT com
 IMPORT util
 
@@ -79,6 +47,7 @@ MAIN
             CALL populate_address(#p1) \
             CALL dialog_state(DIALOG)
 
+        on_action(headoffice)
         on_action(france)
         on_action(usa)
         on_action(uk)
@@ -89,11 +58,6 @@ MAIN
         on_action(nz)
         on_action(australia)
         on_action(ireland)
-
-
-        
-            
-            
 
         -- Draw the map
         ON ACTION drawmap
@@ -129,7 +93,7 @@ END FUNCTION
 
 
 
--- Get the lat/long of an address using google maps geocoding API http://code.google.com/apis/maps/documentation/services.html#Geocoding
+-- Get the lat/long of an address using google maps geocoding API 
 -- https://developers.google.com/maps/documentation/geocoding/
 FUNCTION geocode()
 DEFINE l_http_req com.HTTPRequest
@@ -183,7 +147,7 @@ END RECORD
         RETURN FALSE
     END TRY
 
-   #DISPLAY util.JSON.proposeType(l_result_str)
+   #DISPLAY util.JSON.proposeType(l_result_str) -- uncomment this to determine the record layour of l_result_rec
     CALL util.JSON.parse(l_result_str, l_result_rec)
     IF l_result_rec.results.getLength() = 1 THEN
         LET m_address.latlong=SFMT("%1,%2",l_result_rec.results[1].geometry.location.lat,l_result_rec.results[1].geometry.location.lng)
@@ -196,7 +160,8 @@ END FUNCTION
 
 
 
--- Draw the map using Google Static Maps API as documented http://code.google.com/apis/maps/documentation/staticmaps/
+-- Draw the map using Google Static Maps API as documented 
+-- https://developers.google.com/maps/documentation/static-maps/?csw=1
 FUNCTION drawmap()
 DEFINE url STRING
 
@@ -212,21 +177,21 @@ DEFINE l_office STRING
 
    INITIALIZE m_address.* TO NULL
    CASE l_office
-        --WHEN "france"
-            --LET m_address.address1 = "28 Quai Gallieni"
-            --LET m_address.address2 = "Suresnes"
-            --LET m_address.city = "Paris"
-            --LET m_address.country = "France"
-            --LET m_address.postcode = "92150"
+        WHEN "headoffice"
+            LET m_address.address1 = "28 Quai Gallieni"
+            LET m_address.address2 = "Suresnes"
+            LET m_address.city = "Paris"
+            LET m_address.country = "France"
+            LET m_address.postcode = "92150"
     
         WHEN "france"
-            LET m_address.address1 = "1 Rue de Berne"
+            LET m_address.address1 = "7 Rue de Dublin"
             LET m_address.address2 = "Schitigheim"
             LET m_address.city = "Strasbourg"
             LET m_address.state = ""
             LET m_address.country = "France"
+            LET m_address.postcode = "F-67300"
 
-            
         WHEN "usa"
             LET m_address.address1 = "251 O Connor Ridge Boulevard"
             LET m_address.address2 = ""
@@ -238,7 +203,7 @@ DEFINE l_office STRING
         WHEN "uk"
             LET m_address.address1 = "Regus House"
             LET m_address.address2 = "Victory Way, Admirals Park"
-            LET m_address.city = "Dartford"
+            LET m_address.city = "Crossways, Dartford"
             LET m_address.state = ""
             LET m_address.country = "UK"
             LET m_address.postcode = "DA2 6QD"
@@ -273,7 +238,7 @@ DEFINE l_office STRING
             LET m_address.city = "Madrid"
             LET m_address.state = ""
             LET m_address.country = "Spain"
-            LET m_address.postcode = "C.P. 28001"
+            LET m_address.postcode = "28001"
             
         WHEN "australia"
             LET m_address.address1 = "7 Ridge Street"
@@ -282,10 +247,17 @@ DEFINE l_office STRING
             LET m_address.state = "New South Wales"
             LET m_address.country = "Australia"
       
-        WHEN "new zealand"
+        WHEN "nz"
             LET m_address.address1 = "2 Kalmia Street"
             LET m_address.address2 = "Ellerslie"
             LET m_address.city = "Auckland"
             LET m_address.country = "New Zealand"
+
+        WHEN "ireland"
+            LET m_address.address1 = "Unit L6B"
+            LET m_address.address2 = "Smithstown Industrial Estate"
+            LET m_address.city = "Shannon"
+            LET m_address.state = "County Clare"
+            LET m_address.country = "Ireland"
    END CASE
 END FUNCTION
