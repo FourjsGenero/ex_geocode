@@ -9,7 +9,7 @@ PLEASE note the example code uses my personal API keys that are in googlemaps.fg
 
 When running the program, follow these steps
 
-1. can click on a flag to select an address (a 4Js office around the world), or enter an address (such as your own) manually 
+1. Click on a flag to select an address (a 4Js office around the world), or enter an address (such as your own) manually 
 2. click on the first button that will take that address, send it to the Google GeoCode Web Service and return a latitude/longitude
 3. click on the second button to draw a map centered on this latitude/longitude
 
