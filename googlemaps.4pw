@@ -52,7 +52,6 @@
       <File filePath="googlemaps.4st"/>
       <File filePath="googlemaps.fglprofile"/>
       <File filePath="googlemaps.per"/>
-      <File filePath="LICENSE"/>
     </Application>
   </Group>
 </Project>
