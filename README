@@ -1,0 +1,7 @@
+Another example utilising the Google Maps APIs showing how you could link in
+a google map with your typical address details Genero form.
+
+Utilises the Google geocoding API to return a latitude/longitude, and then makes
+a URL call to get the static map image
+
+

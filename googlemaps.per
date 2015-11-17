@@ -1,0 +1,107 @@
+
+#
+#       (c) Copyright 2008, Four Js AsiaPac - www.4js.com.au/local
+#
+#       MIT License (http://www.opensource.org/licenses/mit-license.php)
+#
+#       Permission is hereby granted, free of charge, to any person
+#       obtaining a copy of this software and associated documentation
+#       files (the "Software"), to deal in the Software without restriction,
+#       including without limitation the rights to use, copy, modify, merge,
+#       publish, distribute, sublicense, and/or sell copies of the Software,
+#       and to permit persons to whom the Software is furnished to do so,
+#       subject to the following conditions:
+#
+#       The above copyright notice and this permission notice shall be
+#       included in all copies or substantial portions of the Software.
+#
+#       THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+#       EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+#       OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+#       NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS
+#       BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+#       ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+#       CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#       THE SOFTWARE.
+#
+#       makefile Makefile for example Google Maps Genero program
+#
+#       April 2008 reuben@4js.com.au
+#
+# Example of a Genero program utilising the Genero MAPS APIs for static maps
+# More details can be found here http://code.google.com/apis/maps/
+
+LAYOUT (TEXT="Genero Google Maps Example")
+HBOX
+VBOX
+GROUP (TEXT="Office")
+GRID
+{
+Click flag to select office, or enter address manually
+[a:b:c:d:e:f:g:h:i:j                                                         ]
+}
+END #GRID
+END #GROUP
+GROUP (TEXT="Address")
+GRID
+{
+Address [a01                                     ]
+        [a02                                     ]
+City    [a03                                     ]
+State   [a04                                     ]
+Country [a05                                     ]
+Postcode[a06                                     ]
+Lat/Long[a07                                     ]
+        [b01                                     ]
+        [b02                                     ]
+}
+END #GRID
+END #GROUP
+END #VBOX
+
+GROUP (TEXT="Map")
+GRID
+{
+Zoom In  [i01                                         ]
+    [z01][                                            ]
+    [   ][                                            ]
+    [   ][                                            ]
+    [   ][                                            ]
+    [   ][                                            ]
+    [   ][                                            ]
+    [   ][                                            ]
+    [   ][                                            ]
+Zoom Out [                                            ]
+}
+END #GRID
+END #GROUP
+END #HBOX
+END #LAYOUT
+ATTRIBUTES
+
+IMAGE a : a, SIZEPOLICY=FIXED, AUTOSCALE, WIDTH=60 PIXELS, HEIGHT=60 PIXELS, IMAGE="france.png";#, ACTION=france;
+IMAGE b : b, SIZEPOLICY=FIXED, AUTOSCALE, WIDTH=60 PIXELS, HEIGHT=60 PIXELS, IMAGE="uk.png";#, ACTION=uk;
+IMAGE c : c, SIZEPOLICY=FIXED, AUTOSCALE, WIDTH=60 PIXELS, HEIGHT=60 PIXELS, IMAGE="usa.png";#, ACTION=usa;
+IMAGE d : d, SIZEPOLICY=FIXED, AUTOSCALE, WIDTH=60 PIXELS, HEIGHT=40 PIXELS, IMAGE="germany.png";#, ACTION=germany;
+IMAGE e : e, SIZEPOLICY=FIXED, AUTOSCALE, WIDTH=60 PIXELS, HEIGHT=40 PIXELS, IMAGE="italy.png";#, ACTION=italy;
+IMAGE f : f, SIZEPOLICY=FIXED, AUTOSCALE, WIDTH=60 PIXELS, HEIGHT=40 PIXELS, IMAGE="spain.png";#, ACTION=spain;
+IMAGE g : g, SIZEPOLICY=FIXED, AUTOSCALE, WIDTH=60 PIXELS, HEIGHT=40 PIXELS, IMAGE="mexico.png";#, ACTION=mexico;
+IMAGE h : h, SIZEPOLICY=FIXED, AUTOSCALE, WIDTH=60 PIXELS, HEIGHT=40 PIXELS, IMAGE="australia.png";#, ACTION=australia;
+IMAGE i : i, SIZEPOLICY=FIXED, AUTOSCALE, WIDTH=60 PIXELS, HEIGHT=40 PIXELS, IMAGE="new_zealand.png";#, ACTION=nz;
+IMAGE j : j, SIZEPOLICY=FIXED, AUTOSCALE, WIDTH=60 PIXELS, HEIGHT=40 PIXELS, IMAGE="ireland.png";#, ACTION=ireland;
+
+
+
+EDIT a01 = formonly.address1;
+EDIT a02 = formonly.address2;
+EDIT a03 = formonly.city;
+EDIT a04 = formonly.state;
+EDIT a05 = formonly.country;
+EDIT a06 = formonly.postcode;
+EDIT a07 = formonly.latlong;
+BUTTON b01 : getdetails, TEXT="Get Latitude/Longitude";
+BUTTON b02: drawmap, TEXT="Draw Map";
+
+IMAGE i01 = formonly.url, WIDTH=512 PIXELS, HEIGHT=512 PIXELS, SIZEPOLICY=FIXED;
+SLIDER z01 = formonly.zoom, VALUEMIN=1, VALUEMAX=19, ORIENTATION=VERTICAL;
+
