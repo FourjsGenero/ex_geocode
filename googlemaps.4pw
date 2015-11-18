@@ -47,7 +47,7 @@
   <LanguageList version="1.0"/>
   <PlatformList version="1.0"/>
   <Group label="googlemaps" language="Genero" targetDirectory="$(ProjectDir)">
-    <Application binaryName="googlemaps" environment="value:FGLPROFILE=googlemaps.fglprofile||value:LANG=en_NZ.UTF-8" id="2" label="googlemaps">
+    <Application binaryName="googlemaps" environment="value:FGLPROFILE=googlemaps.fglprofile" id="2" label="googlemaps">
       <File filePath="googlemaps.4gl"/>
       <File filePath="googlemaps.4st"/>
       <File filePath="googlemaps.fglprofile"/>
