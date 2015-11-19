@@ -16,4 +16,6 @@ When running the program, follow these steps
 If your Genero application has an address field, then the techniques here can be used in your application to draw a map based on that address.
 The same technique can be used to access a wide range of web services that are out there.
 
+(Disclaimer: the flag images I sourced from various Wikipedia pages)
+
 
