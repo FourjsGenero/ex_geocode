@@ -132,6 +132,7 @@ DEFINE l_result_rec RECORD
     END RECORD,
     status STRING
 END RECORD
+DEFINE l_status INTEGER
 
     LET url = SFMT("https://maps.googleapis.com/maps/api/geocode/json?address=%1,%2,%3,%4,%5,%6&key=%7",m_address.address1, m_address.address2, m_address.city, m_address.state, m_address.country,m_address.postcode,FGL_GETRESOURCE("key.google.geocode"))
     TRY 
@@ -145,7 +146,8 @@ END RECORD
             LET l_result_str = l_http_resp.getTextResponse()
         END IF
     CATCH
-        DISPLAY SFMT("ERROR (%1) %2",l_http_resp.getStatusCode(), l_http_resp.getStatusDescription())
+        LET l_status = STATUS
+        DISPLAY SFMT("ERROR (%1) %2", l_status, err_get(l_status))
         RETURN FALSE
     END TRY
 
