@@ -4,3 +4,6 @@
 
 key.google.geocode = "AIzaSyArvZnPO4J6klxnQCTdCcWNzIdl9T8Awzs"
 key.google.maps = "ABQIAAAAgg35UlaF7bP0AXZjRMf8WRSSAVt8jDhBFa1zz53EcnyyKZXBCBRyGAdLwDZ67Xwbpnm0bCOytzag0A"
+
+ws.googlemaps.url = "https://maps.googleapis.com/maps/api/*"
+ws.googlemaps.verifyserver = "FALSE"
