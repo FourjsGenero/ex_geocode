@@ -165,11 +165,11 @@ END FUNCTION
 
 
 -- Draw the map using Google Static Maps API as documented 
--- https://developers.google.com/maps/documentation/static-maps/?csw=1
+-- https://developers.google.com/maps/documentation/static-maps/
 FUNCTION drawmap()
 DEFINE url STRING
 
-    LET url = SFMT("http://maps.google.com/staticmap?center=%1&zoom=%3&size=512x512&key=%2&markers=%1,reda",m_address.latlong, FGL_GETRESOURCE("key.google.maps"), m_zoom USING "<<")
+    LET url = SFMT("https://maps.googleapis.com/maps/api/staticmap?center=%1&zoom=%3&size=512x512&key=%2&markers=%1,reda",m_address.latlong, FGL_GETRESOURCE("key.google.maps"), m_zoom USING "<<")
     DISPLAY url TO url
 END FUNCTION
 
