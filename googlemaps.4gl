@@ -245,8 +245,8 @@ DEFINE l_office STRING
             LET m_address.postcode = "28001"
             
         WHEN "australia"
-            LET m_address.address1 = "7 Ridge Street"
-            LET m_address.address2 = "North Sydney"
+            LET m_address.address1 = "Suite 210 29 Kiora Road"
+            LET m_address.address2 = "Miranda"
             LET m_address.city = "Sydney"
             LET m_address.state = "New South Wales"
             LET m_address.country = "Australia"

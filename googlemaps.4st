@@ -11,6 +11,6 @@
 
    <!-- No border around Image -->
    <Style name="Image" >
-       <StyleAttribute name="border" value="none" />
+       <StyleAttribute name="border" value="no" />
    </Style>
  </StyleList>
