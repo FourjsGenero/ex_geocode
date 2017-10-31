@@ -13,6 +13,8 @@ When running the program, follow these steps
 2. click on the first button that will take that address, send it to the Google GeoCode Web Service and return a latitude/longitude
 3. click on the second button to draw a map centered on this latitude/longitude
 
+<img alt="Geocode Map Example" src="https://user-images.githubusercontent.com/13615993/32221510-aad55894-be9a-11e7-8333-0d5bd4e37c66.png" width="90%" />
+
 If your Genero application has an address field, then the techniques here can be used in your application to draw a map based on that address.
 The same technique can be used to access a wide range of web services that are out there.
 
