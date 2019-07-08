@@ -169,8 +169,9 @@ END FUNCTION
 FUNCTION drawmap()
 DEFINE url STRING
 
-    LET url = SFMT("https://maps.googleapis.com/maps/api/staticmap?center=%1&zoom=%3&size=512x512&key=%2&markers=%1,reda",m_address.latlong, FGL_GETRESOURCE("key.google.maps"), m_zoom USING "<<")
-    DISPLAY url TO url
+    CALL FGL_WINMESSAGE("Info","Google is now charging for this.\nYou will have to use your own key in order to draw a map using this technique","stop")
+    #LET url = SFMT("https://maps.googleapis.com/maps/api/staticmap?center=%1&zoom=%3&size=512x512&key=%2&markers=%1,reda",m_address.latlong, FGL_GETRESOURCE("key.google.maps"), m_zoom USING "<<")
+    #DISPLAY url TO url
 END FUNCTION
 
 
