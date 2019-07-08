@@ -5,7 +5,7 @@ The Web Service used is the Google GeoCode Web Service that returns a latitude/l
 
 The program then uses another Google API, the static maps API https://developers.google.com/maps/documentation/static-maps/?csw=1 to draw a map centered on this latitude/longitude
 
-PLEASE note the example code uses my personal API keys that are in googlemaps.fglprofile.  Please do not use these keys in production, please acquire your own API keys from Google.
+PLEASE note The example code used to include my API keys.  Google detected them in the GitHub repository and sent me email so I have removed them from the Github Repository.  You will have to insert your keys in order to run the example
 
 When running the program, follow these steps
 
