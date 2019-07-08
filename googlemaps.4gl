@@ -26,8 +26,6 @@ MAIN
     CALL ui.Interface.LoadStyles("googlemaps")
     OPEN WINDOW w WITH FORM "googlemaps"
 
-    CALL key_warning_dialog()
-
     -- Initial zoom setting
     LET m_zoom = 14
 
@@ -267,13 +265,3 @@ DEFINE l_office STRING
    END CASE
 END FUNCTION
 
-FUNCTION key_warning_dialog()
-DEFINE l_text STRING
-    IF FGL_GETRESOURCE("key.google.maps") = "ABQIAAAAgg35UlaF7bP0AXZjRMf8WRSSAVt8jDhBFa1zz53EcnyyKZXBCBRyGAdLwDZ67Xwbpnm0bCOytzag0A"
-    OR FGL_GETRESOURCE("key.google.geocode") = "AIzaSyArvZnPO4J6klxnQCTdCcWNzIdl9T8Awzs" THEN
-        LET l_text = "This example is using my personal API keys to access the Google GeoCode and Static Maps API.\n",
-                     "If you plan to use this code in production, please get your own API keys to access the Google services.\n",
-                     "See the README for URL's that will point you in the right direction to get your own API keys" 
-        CALL FGL_WINMESSAGE("Info",l_text,"info")
-    END IF
-END FUNCTION
